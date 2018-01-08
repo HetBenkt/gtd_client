@@ -1,29 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Bootstrap Example</title>
+    <title>Getting Things Done</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
-<body>
+<body ng-app="myApp" ng-controller="myCtrl" ng-init="initPage()">
 
-<div class="container" ng-app="myApp" ng-controller="myCtrl">
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Getting Things Done</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{boards[0].name}}
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li ng-repeat="board in boards"><a href="#" ng-click="switchBoard(board.id)">{{board.name}}</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+
     <div class="row">
-        <div class="col-sm-4">
-            <p>Name : <input label="Name" type="text" ng-model="name"></p>
-            <h1>Hello {{name}}</h1>
-        </div>
-        <div class="col-sm-4">
-            First Name: <input type="text" ng-model="firstName"><br>
-            Last Name: <input type="text" ng-model="lastName"><br>
-            <br>
-            Full Name: {{firstName + " " + lastName}}
-        </div>
-        <div class="col-sm-4">
-            <h3>Column 3</h3>
-            <p>Lorem ipsum dolor..</p>
-            <p>Ut enim ad..</p>
+        <div class="col-sm-4" ng-repeat="column in columns">
+            <h1>{{column.name}}</h1>
         </div>
     </div>
 </div>
