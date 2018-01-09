@@ -26,10 +26,10 @@
 </nav>
 
 <div class="container">
-
     <div class="row">
-        <div class="col-sm-4" ng-repeat="column in columns">
-            <h1>{{column.name}}</h1>
+        <div class="col-sm-4" ng-repeat="board in boardData | orderBy: 'column.id'">
+            <h1>{{board.column.name}}</h1>
+            <p ng-repeat="card in board.card.data._embedded.cards">{{card.name}}</p>
         </div>
     </div>
 </div>
