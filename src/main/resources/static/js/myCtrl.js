@@ -39,4 +39,17 @@ app.controller('myCtrl', function($scope, $http) {
                 console.log(response.statusText);
             });
     };
+
+    $scope.addTaskModal = function (columnName) {
+        $scope.taskModalHeader = columnName;
+        console.log('Column', columnName);
+    };
+
+    $scope.addLabel = function () {
+        console.log('AddLabel');
+    };
+
+    $scope.removeLabel = function () {
+        console.log('RemoveLabel');
+    };
 });
