@@ -37,7 +37,9 @@
                                                 class="glyphicon glyphicon-ok-sign"></span></button>
                                     </span>
                                 </div>
-                                <ul class="list-group" id="labels"></ul>
+                                <ul class="list-group">
+                                    <li class="list-group-item" ng-repeat="label in labels" id="{{$index}}"><button ng-click="removeLabel(label)" type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove-sign"></span></button> {{label}}</li>
+                                </ul>
                             </div>
                         </div>
                         <div id="dates" class="tab-pane fade">

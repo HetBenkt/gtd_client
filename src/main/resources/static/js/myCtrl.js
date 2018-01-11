@@ -1,4 +1,5 @@
 app.controller('myCtrl', function ($scope, $http) {
+    $scope.labels = [];
 
     $scope.initPage = function () {
         $http.get("http://localhost:9080/boards/search/findByMemberId?id=1")
@@ -46,14 +47,12 @@ app.controller('myCtrl', function ($scope, $http) {
     };
 
     $scope.addLabel = function (labelName) {
-        var elem = angular.element(labels);
-        elem.append('<li class="list-group-item" id="' + labelName + '"><button onclick="removeLabel(' + labelName + ')" type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove-sign"></span></button> ' + labelName + '</li>');
-        console.log('AddLabel', elem);
+        console.log('AddLabel', labelName);
+        $scope.labels.indexOf(labelName) === -1 ? $scope.labels.push(labelName) : console.log("Label already exists");
+    };
+
+    $scope.removeLabel = function(labelName) {
+        console.log('RemoveLabel', labelName);
+        $scope.labels.splice($scope.labels.indexOf(labelName), 1);
     };
 });
-
-function removeLabel(labelName) {
-    var elem = angular.element(labelName);
-    elem.remove();
-    console.log('RemoveLabel', elem);
-};
