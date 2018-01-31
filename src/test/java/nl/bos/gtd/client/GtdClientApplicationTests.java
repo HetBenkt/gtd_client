@@ -1,4 +1,4 @@
-package nl.bos.gtd_client;
+package nl.bos.gtd.client;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
